@@ -1,0 +1,67 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: dc1e252ec3561f1cd42a759af238ef1d806f48e2ad8852344188de55445217d8
+
+name:           Reduction
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/lunky/Reduction#readme>
+homepage:       https://github.com/lunky/Reduction#readme
+bug-reports:    https://github.com/lunky/Reduction/issues
+author:         Quinn Wilson
+maintainer:     Quinn.Wilson@midworld.org
+copyright:      Quinn Wilson
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/lunky/Reduction
+
+library
+  exposed-modules:
+      Reduction
+      Reduction.Direction
+  other-modules:
+      Paths_Reduction
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , hspec
+  default-language: Haskell2010
+
+executable Reduction-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_Reduction
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      Reduction
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite Reduction-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      ReductionSpec
+      Paths_Reduction
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , Reduction
+    , base >=4.7 && <5
+    , hspec
+  default-language: Haskell2010
