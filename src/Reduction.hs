@@ -3,14 +3,14 @@ module Reduction
     ) where
 import Reduction.Direction
 
-timesvr :: Direction -> [Direction] -> [Direction]
-timesvr x [] = [x]
-timesvr x xs
+timesaver :: Direction -> [Direction] -> [Direction]
+timesaver x [] = [x]
+timesaver x xs
   | x == (opposite (head xs)) = tail xs
   | otherwise = x:xs
 
 dirReduce :: [Direction] -> [Direction]
-dirReduce orig = foldr timesvr [] orig
+dirReduce orig = foldr timesaver [] orig
 
 opposite :: Direction -> Direction 
 opposite North = South
